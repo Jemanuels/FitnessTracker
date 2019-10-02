@@ -1,0 +1,25 @@
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover,
+a:active {
+    color: gray;
+}
+
+.navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-caption {
+    display: block;
+    padding: 6px;
+}
+
+.nav-caption-logout {
+    padding: 6px;
+}
