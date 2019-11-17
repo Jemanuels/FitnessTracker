@@ -7,22 +7,18 @@
                         <mat-card-subtitle>Dog Breed</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content >
-                        <mat-form-field fxLayoutAlign="center">
+                        <mat-form-field fxLayoutAlign="center" *ngIf="!isLoading && exercises">
                             <mat-select  placeholder="Choose Exercise" ngModel name="exercise" required>
                                 <mat-option *ngFor="let exercise of exercises" value="{{exercise.id}}">
                                     {{exercise.name}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <p fxLayoutAlign="center">
-            
-                            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                            bred for hunting.
-                        </p>
+                        <mat-spinner *ngIf="isLoading"></mat-spinner>
                     </mat-card-content>
-                    <mat-card-actions fxLayoutAlign="center">
-                        <button mat-button type="submit" [disabled]="f.invalid">Start</button>
+                    <mat-card-actions fxLayoutAlign="center"  *ngIf="!isLoading">
+                        <button  *ngIf="exercises" mat-button type="submit" [disabled]="f.invalid">Start</button>
+                        <button  *ngIf="!exercises" mat-button type="button" (click)="fetchExercises()">Fetch Again</button>
                     </mat-card-actions>
                 </mat-card>
 
