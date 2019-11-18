@@ -18,6 +18,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { UIService } from './shared/ui.service';
 import { AuthModule } from './auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './app.reducer';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreModule.forRoot({ui: appReducer})
   ],
   providers: [AuthService, TrainingService, AngularFirestore, UIService],
   bootstrap: [AppComponent]
