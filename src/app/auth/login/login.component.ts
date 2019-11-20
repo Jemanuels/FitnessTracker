@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.store.pipe(map(state => state.ui.isLoading));
     // this.store.subscribe(data => console.log(data));
     // this.loadingSubs = this.uiService.loadingStateChange.subscribe(isLoading => {
-    //   this.isLoading = isLoading;
+    //   this.isLoading = isLoading; is working
     // });
     this.loginForm = new FormGroup({
       email: new FormControl('', {
