@@ -1,5 +1,4 @@
 import { AuthData } from './auth-data.model';
-import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -9,11 +8,10 @@ import { UIService } from '../shared/ui.service';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../app.reducer';
 import * as UI from '../shared/ui.action';
+import * as Auth from './auth.actions';
 
 @Injectable()
 export class AuthService {
-  private isAuthenticated = false;
-  authChange = new Subject<boolean>();
 
   /**
    *
@@ -30,14 +28,14 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       console.log(user);
       if (user) {
-        this.isAuthenticated = true;
-        this.authChange.next(true);
+        this.store.dispatch(new Auth.SetAuthenticated());
+        //this.authChange.next(true);
         this.router.navigate(['/training']);
       } else {
         this.trainingService.cancelSubscription();
-        this.authChange.next(false);
+        //this.authChange.next(false);
         this.router.navigate(['/login']);
-        this.isAuthenticated = false;
+        this.store.dispatch(new Auth.SetUnauthenticated());
       }
     });
   }
@@ -79,8 +77,4 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
-  isAuth() {
-    console.log(this.isAuthenticated);
-    return this.isAuthenticated;
-  }
 }
