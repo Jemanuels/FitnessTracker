@@ -18,7 +18,7 @@ import { TrainingRoutingModule } from './training-routing.module';
     StopTrainingComponent
   ],
   imports: [
-    SharedModule, TrainingRoutingModule
+    SharedModule, TrainingRoutingModule, StoreModule.forFeature('training', trainingReducer)
   ],
 
   entryComponents: [StopTrainingComponent]
