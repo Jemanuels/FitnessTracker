@@ -6,6 +6,8 @@ import { PastTrainingComponent } from './past-training/past-training.component';
 import { StopTrainingComponent } from './current-training/stop-training.component';
 import { SharedModule } from '../shared/shared.module';
 import { TrainingRoutingModule } from './training-routing.module';
+import { trainingReducer } from './training.reducer';
+import { StoreModule } from '@ngrx/store';
 
 
 
