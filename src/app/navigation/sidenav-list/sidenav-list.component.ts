@@ -13,7 +13,6 @@ import { Store } from '@ngrx/store';
 export class SidenavListComponent implements OnInit {
   @Output() closeSidenav = new EventEmitter<void>();
   isAuth$: Observable<boolean>;
-  authSubscription: Subscription;
   constructor(private authService: AuthService, private store: Store<fromRoot.State>) {}
 
   ngOnInit() {

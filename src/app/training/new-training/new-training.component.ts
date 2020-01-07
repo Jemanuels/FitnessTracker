@@ -4,6 +4,7 @@ import { Exercise } from '../exercise.model';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import * as fromTraining from '../training.reducer';
 import * as fromRoot from '../../app.reducer';
 import { Store } from '@ngrx/store';
 
@@ -13,26 +14,24 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./new-training.component.css']
 })
 export class NewTrainingComponent implements OnInit{
-  exercises: Exercise[];
+  exercises$: Observable<Exercise[]>;
   isLoading$: Observable<boolean>;
 
   constructor(
     private trainingService: TrainingService,
     private db: AngularFirestore,
-    private store: Store<fromRoot.State>
+    private store: Store<fromTraining.State>
   ) {}
 
   ngOnInit() {
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);
+    this.exercises$ = this.store.select(fromTraining.getAvailableExercises);
     this.fetchExercises();
   }
 
   onStartTraining(form: NgForm) {
     this.trainingService.startExercise(form.value.exercise);
   }
-
-  
-    
 
 
   fetchExercises() {

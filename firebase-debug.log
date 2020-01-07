@@ -1,0 +1,24 @@
+[debug] [2020-01-05T19:54:52.539Z] ----------------------------------------------------------------------
+[debug] [2020-01-05T19:54:52.542Z] Command:       /usr/local/Cellar/node/10.4.1/bin/node /usr/local/bin/firebase serve
+[debug] [2020-01-05T19:54:52.542Z] CLI Version:   4.2.1
+[debug] [2020-01-05T19:54:52.542Z] Platform:      darwin
+[debug] [2020-01-05T19:54:52.543Z] Node Version:  v10.16.1
+[debug] [2020-01-05T19:54:52.544Z] Time:          Sun Jan 05 2020 21:54:52 GMT+0200 (South Africa Standard Time)
+[debug] [2020-01-05T19:54:52.544Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2020-01-05T19:54:52.554Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-05T19:54:52.554Z] > authorizing via signed-in user
+[debug] [2020-01-05T19:54:52.557Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/ng-fitness-tracker-3e7ef  
+ 
+[debug] [2020-01-05T19:54:54.190Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-05T19:54:54.193Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/ng-fitness-tracker-3e7ef  
+ 
+[debug] [2020-01-05T19:54:56.408Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jemanuels/Documents/repos/FitnessTracker'...
+[info] 
+[debug] [2020-01-05T19:54:56.412Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/600463437943/clients/_:getWebAppConfig  
+ 
+[debug] [2020-01-05T19:54:57.524Z] <<< HTTP RESPONSE 200
+[info] i  hosting[ng-fitness-tracker-3e7ef]: Serving hosting files from: dist
+[info] ✔  hosting[ng-fitness-tracker-3e7ef]: Local server: http://localhost:5000
